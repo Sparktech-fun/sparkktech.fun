@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resources — Spark Tech Academy</title>
+    <link rel="stylesheet" href="Css Style/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar">
+            <div class="brand">
+                <div class="logo-mark">ST</div>
+                <div>
+                    <h1>Spark Tech Academy</h1>
+                    <div style="font-size:.8rem;color:var(--muted)">K–12 online learning</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem">
+                <button class="hamburger" aria-label="Open menu" id="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="Courses.html">Courses</a>
+                    <a href="Tutors.html">Tutors</a>
+                    <a href="Resources.html" class="active">Resources</a>
+                        <a href="Pricing.html">Pricing</a>
+                    <a href="Contact.html">Contact</a>
+                      <a href="https://paystack.shop/pay/sparktech" " target="_blank" rel=" class="btn-register">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="resources-hero" style="padding-top: calc(var(--header-height) + 20px);">
+            <h2>Classroom Resources</h2>
+            <p class="lead">Free and paid resources to support lessons: worksheets, activity packs, video tutorials, and project guides.</p>
+
+            <div class="resources-grid">
+
+                <article class="resource-card">
+                    <img src="assets/resource-worksheets.svg" alt="Worksheets" class="resource-img">
+                    <h3>Worksheets & Printables</h3>
+                    <p>Grade-specific practice sheets for math, reading, and science that reinforce lesson objectives.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">Download</a></div>
+                </article>
+
+                <article class="resource-card">
+                    <img src="assets/resource-videos.svg" alt="Video Tutorials" class="resource-img">
+                    <h3>Video Tutorials</h3>
+                    <p>Step-by-step lesson videos and demonstrations to support visual learners and flipped-classroom models.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">Watch</a></div>
+                </article>
+
+                <article class="resource-card">
+                    <img src="assets/resource-projects.svg" alt="Project Guides" class="resource-img">
+                    <h3>Project Guides</h3>
+                    <p>Hands-on project plans with materials lists and step-by-step instructions for classroom or at-home projects.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">Explore</a></div>
+                </article>
+
+                <article class="resource-card">
+                    <img src="assets/resource-assess.svg" alt="Assessments" class="resource-img">
+                    <h3>Assessments</h3>
+                    <p>Formative and summative assessment tools to help track progress and inform instruction.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View</a></div>
+                </article>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div>&copy; <strong>Spark Tech Academy</strong> — inspiring young learners</div>
+            <div style="color:var(--muted)">www.sparktech.fun</div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+</body>
+</html>

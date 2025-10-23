@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact — Spark Tech Academy</title>
+    <link rel="stylesheet" href="Css Style/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar">
+            <div class="brand">
+                <div class="logo-mark">ST</div>
+                <div>
+                    <h1>Spark Tech Academy</h1>
+                    <div style="font-size:.8rem;color:var(--muted)">K–12 online learning</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem">
+                <button class="hamburger" aria-label="Open menu" id="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="Courses.html">Courses</a>
+                    <a href="Tutors.html">Tutors</a>
+                    <a href="Resources.html">Resources</a>
+                    <a href="Pricing.html">Pricing</a>
+                    <a href="Contact.html" class="active">Contact</a>
+                    <a href="https://paystack.shop/pay/sparktech" " target="_blank" rel=" class="btn-register">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact-hero" style="padding-top: calc(var(--header-height) + 18px); padding-bottom:2rem;">
+            <h2>Contact Us</h2>
+            <p class="lead">We'd love to hear from you — questions about courses, partnerships, or school packages. Reach out using the form or the contact details below.</p>
+
+            <div class="contact-grid" style="display:grid;grid-template-columns:1fr 420px;gap:1.25rem;margin-top:1rem;">
+                <form id="contactForm" class="contact-form">
+                    <label>Full name<input type="text" name="name" required></label>
+                    <label>Email address<input type="email" name="email" required></label>
+                    <label>Subject<input type="text" name="subject" required></label>
+                    <label>Message<textarea name="message" rows="6" required></textarea></label>
+                    <div style="display:flex;gap:.6rem"><button type="submit" class="btn-primary">Send message</button><button type="reset" class="btn-register">Reset</button></div>
+                </form>
+
+                <aside class="contact-info">
+                    <img src="assets/map-placeholder.svg" alt="Map" style="width:100%;border-radius:10px;">
+                    <div style="margin-top:1rem">
+                        <p><strong>Address</strong><br>123 Learning Lane, Knowledge City</p>
+                        <p><strong>Email</strong><br>hello@sparktech.fun</p>
+                        <p><strong>Phone</strong><br>+1 (555) 123-4567</p>
+                    </div>
+                </aside>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div>&copy; <strong>Spark Tech Academy</strong> — inspiring young learners</div>
+            <div style="color:var(--muted)">www.sparktech.fun</div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+        // simple client-only contact form handler
+        document.getElementById('contactForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('Message sent. We will get back to you via email.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

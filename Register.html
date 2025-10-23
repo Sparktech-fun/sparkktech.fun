@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Register — Spark Tech Academy</title>
+    <link rel="stylesheet" href="Css Style/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar">
+            <div class="brand">
+                <div class="logo-mark">ST</div>
+                <div>
+                    <h1>Spark Tech Academy</h1>
+                    <div style="font-size:.8rem;color:var(--muted)">K–12 online learning</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem">
+                <button class="hamburger" aria-label="Open menu" id="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="Courses.html">Courses</a>
+                    <a href="Tutors.html">Tutors</a>
+                    <a href="Resources.html">Resources</a>
+                    <a href="Register.html" class="active">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="register-hero" style="padding-top: calc(var(--header-height) + 16px); padding-bottom:2rem;">
+            <h2>Register for classes</h2>
+            <p class="lead">Choose courses, select enrollment options, and submit your registration. Prices are shown per-term.</p>
+
+            <div class="register-layout" style="display:grid;grid-template-columns:1fr 360px;gap:1.5rem;margin-top:1rem;">
+                <form id="registerForm" class="course-form">
+                    <fieldset>
+                        <legend>Student Details</legend>
+                        <label>Full name<input type="text" name="name" required></label>
+                        <label>Age<input type="number" name="age" min="4" max="18" required></label>
+                        <label>Parent / Guardian Email<input type="email" name="email" required></label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Select courses</legend>
+                        <label class="checkbox"><input type="checkbox" name="courses" value="math" data-price="120"> Mathematics — &#8358;120</label>
+                        <label class="checkbox"><input type="checkbox" name="courses" value="english" data-price="100"> English & Communication — &#8358;100</label>
+                        <label class="checkbox"><input type="checkbox" name="courses" value="science" data-price="140"> Sciences & Projects — &#8358;140</label>
+                        <label class="checkbox"><input type="checkbox" name="courses" value="tech" data-price="110"> Intro to Tech — &#8358;110</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Payment & options</legend>
+                        <label class="checkbox small"><input type="checkbox" id="materials" data-price="15"> Add printed materials &#8358;15</label>
+                        <label>Preferred start date<input type="date" name="start" required></label>
+                    </fieldset>
+
+                    <div style="display:flex;gap:.6rem;margin-top:1rem;">
+                        <button type="button" id="calc" class="btn-primary">Calculate price</button>
+                        <button type="submit" class="btn-register">Submit registration</button>
+                    </div>
+                </form>
+
+                <aside class="summary-card">
+                    <h3>Order summary</h3>
+                    <div id="summaryList">No courses selected</div>
+                    <div style="margin-top:1rem;font-weight:700">Total: &#8358;<span id="total">0</span></div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div>&copy; <strong>Spark Tech Academy</strong> — inspiring young learners</div>
+            <div style="color:var(--muted)">www.sparktech.fun</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu reuse
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+        // Price calculator + smooth scroll to summary
+        function calculate(){
+            const checked = Array.from(document.querySelectorAll('input[name="courses"]:checked'));
+            const materialsEl = document.getElementById('materials');
+            const materials = materialsEl ? materialsEl.checked : false;
+            const summary = document.getElementById('summaryList');
+            const totalEl = document.getElementById('total');
+
+            // build summary
+            let total = 0;
+            summary.innerHTML = '';
+            if(checked.length === 0){
+                summary.innerHTML = 'No courses selected';
+            } else {
+                checked.forEach(c=>{
+                    const price = Number(c.dataset.price||0);
+                    total += price;
+                    const name = c.parentElement.textContent.trim();
+                    const div = document.createElement('div'); div.textContent = name; summary.appendChild(div);
+                });
+            }
+
+            if(materials){ total += Number(materialsEl.dataset.price||0); const d=document.createElement('div'); d.textContent='Printed materials — $15'; summary.appendChild(d); }
+            totalEl.textContent = total;
+
+            // scroll smoothly to the order summary (account for fixed header)
+            const header = document.querySelector('header.container');
+            let headerHeight = header ? header.offsetHeight : 0;
+            if(!headerHeight){
+                const hv = getComputedStyle(document.documentElement).getPropertyValue('--header-height') || '72';
+                headerHeight = parseInt(hv,10) || 72;
+            }
+
+            const summaryCard = document.querySelector('.summary-card') || summary;
+            if(summaryCard){
+                const top = summaryCard.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+                window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+            }
+        }
+        document.getElementById('calc').addEventListener('click', calculate);
+
+        // submit handler (no backend) — quick client-side success
+        document.getElementById('registerForm').addEventListener('submit', function(e){
+            e.preventDefault(); calculate(); alert('Registration submitted — total $' + document.getElementById('total').textContent + '\nWe will contact you via email.');
+            this.reset(); document.getElementById('summaryList').textContent='No courses selected'; document.getElementById('total').textContent='0';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Spark Tech Academy</title>
+        <link rel="stylesheet" href="Css Style/style.css">
+    </head>
+<body>
+    <header class="container">
+        <nav class="navbar">
+            <div class="brand">
+                <img src="images/spark logo.jpg" alt="Spark Tech Academy Logo" class="logo-mark" style="width:40px;height:40px;">
+                <div>
+                    <h1>Spark Tech Academy</h1>
+                    <div style="font-size:.8rem;color:var(--muted)">K–12 online learning</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem">
+                <button class="hamburger" aria-label="Open menu" id="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="#">Home</a>
+                    <a href="Courses.html">Courses</a>
+                    <a href="Tutors.html">Tutors</a>
+                    <a href="Resources.html">Resources</a>
+                    <a href="Pricing.html">Pricing</a>
+                    <a href="Contact.html">Contact</a>
+                    <a href="Pricing.html" class="btn-register">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-card">
+                <div class="eyebrow">Learn from Home</div>
+                <h2>Convert screen time into learning time</h2>
+                <p class="lead">Interactive lessons, friendly tutors, and a curriculum built for K–12 success. Join a community of curious learners and give your child the skills to thrive online and beyond.</p>
+                <div class="actions">
+                    <a href="Courses.html" class="btn-primary" style="text-decoration:none;">Explore Courses</a>
+                    <a href="Pricing.html" class="btn-register" style="text-decoration:none;">Register Now</a>
+                </div>
+            </div>
+
+            <!-- Replace the src with your poster image file placed in assets/ -->
+            <img src="images/tech gif.gif" alt="Spark Tech poster" class="hero-img" style="float: right;">
+        </section>
+    </main>
+
+        <!-- Spotlight: image left, text right -->
+        <section class="container spotlight-section" aria-label="Spotlight on SparkTech Learning">
+            <div class="spotlight-grid">
+                <div class="spotlight-image">
+                    <img src="assets/spotlight.png" alt="Children learning with technology">
+                </div>
+                <div class="spotlight-content">
+                    <style>
+                    /* Sweet animated heading — drop this next to the heading */
+                    .animated-heading {
+                        display: inline-block;
+                        font-weight: 800;
+                        font-size: 2rem; /* adjust to match your layout */
+                        line-height: 1.1;
+                        background: linear-gradient(90deg, #ff7a18, #ff3d81, #7a42f4);
+                        background-size: 200% 100%;
+                        -webkit-background-clip: text;
+                        background-clip: text;
+                        color: transparent;
+                        -webkit-text-fill-color: transparent;
+                        transform-origin: center;
+                        /* two animations: a subtle float and a moving gradient "shine" */
+                        animation: float-anim 4.5s ease-in-out infinite, shine-anim 3.5s linear infinite;
+                        will-change: transform, background-position;
+                        /* small text-shadow glow for depth (kept subtle) */
+                        text-shadow: 0 6px 18px rgba(122,66,244,0.08);
+                    }
+
+                    /* soft floating motion */
+                    @keyframes float-anim {
+                        0%   { transform: translateY(0) scale(1); }
+                        50%  { transform: translateY(-6px) scale(1.01); }
+                        100% { transform: translateY(0) scale(1); }
+                    }
+
+                    /* moving gradient to create a shimmering effect */
+                    @keyframes shine-anim {
+                        0%   { background-position: 0% 50%; }
+                        100% { background-position: 200% 50%; }
+                    }
+
+                    /* small, blurred glow layer using pseudo-element */
+                    .animated-heading::after{
+                        content: "";
+                        display: block;
+                        height: 6px;
+                        width: 60%;
+                        margin-top: 8px;
+                        filter: blur(10px);
+                        background: linear-gradient(90deg, rgba(255,122,24,0.12), rgba(124,66,244,0.12));
+                        border-radius: 50%;
+                        opacity: 0.9;
+                    }
+
+                    /* Respect reduced motion preference */
+                    @media (prefers-reduced-motion: reduce) {
+                        .animated-heading,
+                        .animated-heading::after {
+                            animation: none !important;
+                            transform: none !important;
+                            background-position: 0% 50% !important;
+                            filter: none !important;
+                        }
+                    }
+                    </style>
+
+                    <!-- Horizontal looping marquee heading (JS-driven, respects prefers-reduced-motion) -->
+                    <div class="marquee" aria-hidden="false">
+                        <div class="marquee-track" id="marqueeTrack" role="status" aria-live="polite">
+                            <span class="marquee-item">Ignite Their Potential with SparkTech Learning</span>
+                        </div>
+                    </div>
+
+                    <style>
+                        /* Marquee layout + text style */
+                        .marquee { overflow: hidden; width: 100%; }
+                        .marquee-track { display: inline-flex; white-space: nowrap; align-items: center; will-change: transform; }
+                        .marquee-item {
+                            font-weight: 800;
+                            font-size: 2rem;
+                            line-height: 1.1;
+                            padding-right: 3rem; /* gap between repeats */
+                            background: linear-gradient(90deg, #ff7a18, #ff3d81, #7a42f4);
+                            background-size: 200% 100%;
+                            -webkit-background-clip: text;
+                            background-clip: text;
+                            color: transparent;
+                            -webkit-text-fill-color: transparent;
+                            text-shadow: 0 6px 18px rgba(122,66,244,0.06);
+                        }
+
+                        /* Pause animation for users who prefer reduced motion */
+                        @media (prefers-reduced-motion: reduce) {
+                            .marquee-track { transform: none !important; transition: none !important; }
+                        }
+                    </style>
+
+                    <script>
+                    (function(){
+                        const track = document.getElementById('marqueeTrack');
+                        if (!track) return;
+
+                        // duplicate content to create a seamless loop
+                        track.innerHTML = track.innerHTML + track.innerHTML;
+
+                        // Get header size and apply to marquee items so they match the header visually
+                        const headerTitle = document.querySelector('.brand h1');
+                        function syncSizeWithHeader() {
+                            const items = track.querySelectorAll('.marquee-item');
+                            if (!items.length) return;
+                            // use computed font-size from header if available, otherwise keep a sensible fallback
+                            const headerFontSize = headerTitle
+                                ? window.getComputedStyle(headerTitle).fontSize
+                                : '2rem';
+                            items.forEach(item => {
+                                item.style.fontSize = headerFontSize;
+                                // ensure line-height matches for a tighter visual match
+                                item.style.lineHeight = window.getComputedStyle(headerTitle || document.documentElement).lineHeight || '1.1';
+                            });
+                        }
+
+                        let speed = 0.6; // pixels per frame (adjust as desired)
+                        let offset = 0;
+                        let trackWidth = 0;
+                        let rafId = null;
+
+                        function measure(){
+                            // total width of one set (half of duplicated track)
+                            trackWidth = track.scrollWidth / 2;
+                        }
+
+                        function step(){
+                            offset -= speed;
+                            if (Math.abs(offset) >= trackWidth) {
+                                // reset to start for seamless loop
+                                offset += trackWidth;
+                            }
+                            track.style.transform = `translateX(${offset}px)`;
+                            rafId = requestAnimationFrame(step);
+                        }
+
+                        function start(){
+                            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                            cancelAnimationFrame(rafId);
+                            syncSizeWithHeader();
+                            measure();
+                            // small delay to ensure measurements are correct after layout
+                            rafId = requestAnimationFrame(step);
+                        }
+
+                        function stop(){
+                            cancelAnimationFrame(rafId);
+                            rafId = null;
+                        }
+
+                        // Pause on hover/focus for accessibility
+                        track.addEventListener('mouseenter', stop);
+                        track.addEventListener('mouseleave', start);
+                        track.addEventListener('focusin', stop);
+                        track.addEventListener('focusout', start);
+
+                        // Re-measure & re-sync on resize/orientation change
+                        window.addEventListener('resize', function(){
+                            const wasRunning = !!rafId;
+                            stop();
+                            syncSizeWithHeader();
+                            measure();
+                            if (wasRunning) start();
+                        });
+
+                        // Initialize after DOM paints
+                        requestAnimationFrame(start);
+                    })();
+                    </script>
+                    <style>
+                    /* Local styles to keep the copy sized and justified to match the header scale */
+                    .spotlight-copy {
+                        max-width: 560px;                 /* keeps the paragraph from stretching too wide */
+                        font-size: clamp(0.95rem, 1.6vw, 1.1rem); /* responsive text size */
+                        line-height: 1.55;
+                        text-align: justify;              /* justify the paragraph text */
+                        margin: 0 0 0.75rem 0;
+                        color: inherit;
+                    }
+
+                    /* CTA sizing & alignment that matches header buttons */
+                    .spotlight-cta {
+                        display: inline-block;
+                        padding: 0.6rem 1rem;
+                        background: linear-gradient(90deg,#7a42f4,#ff3d81);
+                        color: #fff;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        font-weight: 700;
+                        margin-top: 0.25rem;
+                        box-shadow: 0 6px 18px rgba(122,66,244,0.08);
+                    }
+
+                    /* Make CTA full width on narrow screens and ensure spacing */
+                    @media (max-width: 780px) {
+                        .spotlight-copy { font-size: 0.98rem; }
+                        .spotlight-cta { display: block; width: 100%; text-align: center; }
+                    }
+                    </style>
+
+                    <div class="spotlight-copy">
+                        <p>
+                            At SparkTech Learning, we offer more than just lessons — an exploratory learning space that turns curious kids into confident leaders.
+                            As your child embraces technology they learn multiple ways to solve problems, fostering deep cognitive and educational growth. Our curriculum centers on hands‑on learning, fun challenges, and self‑discovery to build practical tech skills and more.
+                            We don’t just hope for improvement — we measure it. Our progress reports show tangible, real‑time skill development in a short timeframe.
+                            We’re dedicated to building confidence and excellence so your child stands out as a leader.
+                        </p>
+                    </div>
+
+                    <a class="spotlight-cta" href="Pricing.html">Start a free trial</a>
+                    <div class="spotlight-note">Progress reports, personalized learning plans, and practical projects included.</div>
+                </div>
+            </div>
+        </section>
+ <!-- Social media / meeting buttons -->
+        <section class="container" aria-label="Connect with us">
+            <div class="social-bar" role="navigation" aria-labelledby="social-heading">
+                <a class="social-btn social-btn--whatsapp" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                    <!-- WhatsApp SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a9.5 9.5 0 10-2.6 6.1L21 21l-2.9-1.1A9.5 9.5 0 0021 11.5z" fill="rgba(255,255,255,0.12)"/><path d="M16.1 14.7c-.4-.2-2.3-1.2-2.6-1.3-.3-.1-.6-.1-.9.2-.3.3-1.2 1.3-1.5 1.6-.2.3-.5.2-.8.1-.9-.4-3-1.7-4.1-3.3-.3-.5.3-.6.9-1.7.1-.2.1-.4 0-.6-.1-.2-1-2.4-1.3-3.2-.3-.8-.6-.6-.9-.6-.3 0-.6 0-.9 0-.3 0-.7.1-1 .3s-1.6.9-1.6 2.3.7 2.7 1.7 3.9 3.5 3.6 6.4 4.6c2 .7 3.3.6 4 .6.6 0 1-.3 1.3-.6.3-.3.8-1.1.9-1.9.1-.8.1-1.5-.3-1.7z" fill="currentColor"/></svg>
+                    WhatsApp
+                </a>
+
+                <a class="social-btn social-btn--facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                    <!-- Facebook SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12.1C22 6.5 17.5 2 11.9 2S2 6.5 2 12.1c0 4.9 3.6 8.9 8.2 9.8v-6.9H8.3v-2.9h3V9.6c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v6.9C18.4 21 22 17 22 12.1z" fill="currentColor"/></svg>
+                    Facebook
+                </a>
+
+                <a class="social-btn social-btn--zoom" href="https://zoom.us/" target="_blank" rel="noopener noreferrer" aria-label="Join a Zoom meeting">
+                    <!-- Zoom SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 7.5v9c0 .8-.7 1.5-1.5 1.5H4.5C3.7 18 3 17.3 3 16.5v-9C3 6.7 3.7 6 4.5 6h15C20.3 6 21 6.7 21 7.5z" fill="currentColor"/><path d="M19 8.5v7l-3-2-3 2v-7l3 2 3-2z" fill="rgba(255,255,255,0.18)"/></svg>
+                    Zoom
+                </a>
+
+                <a class="social-btn social-btn--meet" href="https://meet.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Join a Google Meet">
+                    <!-- Google Meet SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 8.3v7.4c0 .9-.7 1.6-1.6 1.6H4.6C3.7 17.3 3 16.6 3 15.7V8.3C3 7.4 3.7 6.7 4.6 6.7h14.8C20.3 6.7 21 7.4 21 8.3z" fill="currentColor"/><path d="M18 12l3 2v-8l-3 2v4z" fill="rgba(255,255,255,0.18)"/></svg>
+                    Google Meet
+                </a>
+
+                <a class="social-btn social-btn--gather" href="https://gather.town/" target="_blank" rel="noopener noreferrer" aria-label="Join our Gather space">
+                    <!-- Gather SVG -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor"/><path d="M12 7a5 5 0 100 10 5 5 0 000-10z" fill="rgba(255,255,255,0.18)"/></svg>
+                    Gather
+                </a>
+            </div>
+        </section>
+
+        <!-- Best performers of the week -->
+        <section class="container performers-section" aria-label="Best performers of the week">
+            <div style="display:flex;align-items:center;gap:1rem;justify-content:flex-end">
+                <h2 style="flex:1;text-align:center;margin:0">Best Performance of the Week</h2>
+                <div class="badge" style="flex-shrink:0; margin-left:auto;">Top Picks</div>
+            </div>
+            <div class="performers-grid" style="justify-content: flex-end;">
+                <article class="performer-card">
+                    <img src="assets/performer-1.svg" alt="Best student 1" class="performer-photo">
+                    <h4>Amaka Johnson</h4>
+                    <p>Grade 5 — Mathematics Whiz</p>
+                </article>
+                <article class="performer-card">
+                    <img src="assets/performer-2.svg" alt="Best student 2" class="performer-photo">
+                    <h4>Daniel Okoye</h4>
+                    <p>Grade 7 — Science Innovator</p>
+                </article>
+                <article class="performer-card">
+                    <img src="assets/performer-3.svg" alt="Best student 3" class="performer-photo">
+                    <h4>Sara Bello</h4>
+                    <p>Grade 4 — Reading Star</p>
+                </article>
+                <article class="performer-card">
+                    <img src="assets/performer-4.svg" alt="Best student 4" class="performer-photo">
+                    <h4>Michael Adu</h4>
+                    <p>Grade 6 — Project Leader</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Something new today -->
+        <section class="container new-today" aria-label="Something new today">
+            <div style="display:flex;align-items:center;gap:1rem;justify-content:space-between">
+                <h2 style="flex:1;text-align:center;margin:0">Check out something new today</h2>
+                <div style="color:var(--muted);font-weight:700">Fresh picks</div>
+            </div>
+            <div class="new-grid">
+                <article class="new-card">
+                    <img src="assets/playsheet.svg" alt="Playsheet">
+                    <h4>Playsheet</h4>
+                    <p>Printable, playful activities to reinforce learning through play.</p>
+                    <a class="link" href="Resources.html">Explore</a>
+                </article>
+                <article class="new-card">
+                    <img src="assets/maths-made-easy.svg" alt="Maths made easy">
+                    <h4>Maths-made-easy</h4>
+                    <p>Short videos and tips that make math concepts click for learners.</p>
+                    <a class="link" href="Resources.html">Watch</a>
+                </article>
+                <article class="new-card">
+                    <img src="assets/bedtime-stories.svg" alt="Bedtime stories">
+                    <h4>Bedtime Stories</h4>
+                    <p>Gentle audio stories to read along and build early literacy habits.</p>
+                    <a class="link" href="Resources.html">Listen</a>
+                </article>
+                <article class="new-card">
+                    <img src="assets/abc-cartoon.svg" alt="ABC cartoon books">
+                    <h4>Your ABC Cartoon Books</h4>
+                    <p>Animated ABCs that help children learn letters with music and color.</p>
+                    <a class="link" href="Resources.html">Read</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Unlimited learning materials banner -->
+        <section class="container">
+            <div class="unlimited-banner" role="region" aria-label="Unlimited learning materials and games">
+                <div>
+                    <h3>Unlimited learning materials & games</h3>
+                    <p>Access worksheets, interactive games, and practice tests anytime — perfect for home or school.</p>
+                </div>
+                <div>
+                    <a class="btn-cta" href="Resources.html">Explore Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Google Classroom CTA -->
+        <section class="classroom-cta" aria-label="Google Classroom">
+            <div class="classroom-frame" role="region" aria-labelledby="classroom-heading">
+                <div class="classroom-icon" aria-hidden="true">
+                    <!-- Classroom-style book icon -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" fill="white"/><path d="M7 9h10v2H7z" fill="rgba(0,0,0,0.08)"/><path d="M7 13h6v2H7z" fill="rgba(0,0,0,0.06)"/></svg>
+                </div>
+                <div>
+                    <h3 id="classroom-heading">LET GET TO CLASS</h3>
+                    <p>Open our Google Classroom to access live lessons, assignments, and class resources.</p>
+                </div>
+                <a class="cta-button" href="https://classroom.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Google Classroom">
+                    <!-- Meet / Classroom arrow icon -->
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    LET GET TO CLASS
+                </a>
+            </div>
+        </section>
+
+       
+    <footer class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div>&copy; <strong>Spark Tech Academy</strong> — inspiring young learners</div>
+            <div style="color:var(--muted)">www.sparktech.fun</div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+</body>
+</html>

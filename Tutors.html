@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tutors — Spark Tech Academy</title>
+    <link rel="stylesheet" href="Css Style/style.css">
+</head>
+<body>
+    <header class="container">
+        <nav class="navbar">
+            <div class="brand">
+                <div class="logo-mark">ST</div>
+                <div>
+                    <h1>Spark Tech Academy</h1>
+                    <div style="font-size:.8rem;color:var(--muted)">K–12 online learning</div>
+                </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:1rem">
+                <button class="hamburger" aria-label="Open menu" id="hamburger">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+
+                <div class="nav-links" id="navLinks">
+                    <a href="index.html">Home</a>
+                    <a href="Courses.html">Courses</a>
+                    <a href="Tutors.html" class="active">Tutors</a>
+                      <a href="Resources.html">Resources</a>
+                    <a href="Contact.html">Contact</a>
+                       <a href="Pricing.html">Pricing</a>
+                      <a href="https://paystack.shop/pay/sparktech" " target="_blank" rel=" class="btn-register">Register</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="tutors-hero" style="padding-top: calc(var(--header-height) + 20px); padding-bottom:1rem;">
+            <h2>Our Tutors</h2>
+            <p class="lead">Meet our experienced, friendly tutors — hand-selected to support K–12 learners. Click a profile to learn more or book a session.</p>
+
+            <div class="tutors-grid">
+                <!-- Six tutor cards -->
+                <article class="tutor-card">
+                    <img src="assets/tutor-1.svg" alt="Tutor A" class="tutor-photo">
+                    <h3>Dr. Ada Bright</h3>
+                    <p class="role">Mathematics Lead</p>
+                    <p class="bio">PhD in mathematics education; 8 years teaching experience with an emphasis on problem solving and reasoning.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+                <article class="tutor-card">
+                    <img src="assets/tutor-2.svg" alt="Tutor B" class="tutor-photo">
+                    <h3>Ms. Grace Rivers</h3>
+                    <p class="role">English & Communication</p>
+                    <p class="bio">Experienced English teacher focused on literacy, writing, and confident public speaking for young learners.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+                <article class="tutor-card">
+                    <img src="assets/tutor-3.svg" alt="Tutor C" class="tutor-photo">
+                    <h3>Mr. Ben Carter</h3>
+                    <p class="role">Science & Projects</p>
+                    <p class="bio">Hands-on science educator who runs inquiry-driven labs and maker activities for primary and middle schoolers.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+                <article class="tutor-card">
+                    <img src="assets/tutor-4.svg" alt="Tutor D" class="tutor-photo">
+                    <h3>Ms. Lina Zhou</h3>
+                    <p class="role">Digital Skills & Coding</p>
+                    <p class="bio">Software educator teaching block-based and beginner Python; passionate about creative computing for kids.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+                <article class="tutor-card">
+                    <img src="assets/tutor-5.svg" alt="Tutor E" class="tutor-photo">
+                    <h3>Mr. Samuel Okoro</h3>
+                    <p class="role">STEM Integration</p>
+                    <p class="bio">STEM specialist combining math, science and technology projects that prepare learners for real-world problems.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+                <article class="tutor-card">
+                    <img src="assets/tutor-6.svg" alt="Tutor F" class="tutor-photo">
+                    <h3>Ms. Amina Bello</h3>
+                    <p class="role">Learning Support & Differentiation</p>
+                    <p class="bio">Specialist in differentiated instruction and learning support to help each child reach their potential.</p>
+                    <div class="card-actions"><a class="btn-primary" href="#">View profile</a></div>
+                </article>
+
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="container">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+            <div>&copy; <strong>Spark Tech Academy</strong> — inspiring young learners</div>
+            <div style="color:var(--muted)">www.sparktech.fun</div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    </script>
+</body>
+</html>

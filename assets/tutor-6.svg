@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360">
+  <rect width="100%" height="100%" rx="20" fill="#fff"/>
+  <rect x="90" y="90" width="160" height="90" rx="12" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#1E90FF"/>
+      <stop offset="1" stop-color="#5D2A86"/>
+    </linearGradient>
+  </defs>
+  <text x="56" y="320" font-family="Segoe UI, Roboto, Arial" font-size="22" fill="#667085">Ms. Amina Bello</text>
+</svg>

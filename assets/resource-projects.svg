@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="100%" height="100%" rx="16" fill="#fff"/>
+  <defs><linearGradient id="gp" x1="0" x2="1"><stop offset="0" stop-color="#1E90FF"/><stop offset="1" stop-color="#FF8C42"/></linearGradient></defs>
+  <circle cx="140" cy="140" r="64" fill="url(#gp)"/>
+  <text x="320" y="220" font-family="Segoe UI, Roboto, Arial" font-size="34" fill="#667085">Projects</text>
+</svg>
