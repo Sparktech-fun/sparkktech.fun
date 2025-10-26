@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="480" viewBox="0 0 720 480">
+  <rect width="100%" height="100%" rx="14" fill="#F7FBFF"/>
+  <g transform="translate(40,40)">
+    <rect x="0" y="0" width="320" height="200" rx="12" fill="#fff" stroke="#E6EEF8"/>
+    <rect x="340" y="0" width="320" height="200" rx="12" fill="#fff" stroke="#E6EEF8"/>
+    <rect x="0" y="220" width="660" height="160" rx="12" fill="#fff" stroke="#E6EEF8"/>
+    <text x="20" y="260" fill="#667085" font-size="20" font-family="Arial">Weekly report</text>
+  </g>
+</svg>

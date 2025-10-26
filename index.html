@@ -50,7 +50,7 @@
             </div>
 
             <!-- Replace the src with your poster image file placed in assets/ -->
-            <img src="images/tech gif.gif" alt="Spark Tech poster" class="hero-img" style="float: right;">
+            <img src="images/tech gif.gif" alt="Spark Tech poster" class="hero-img" loading="lazy">
         </section>
     </main>
 
@@ -66,7 +66,7 @@
                     .animated-heading {
                         display: inline-block;
                         font-weight: 800;
-                        font-size: 2rem; /* adjust to match your layout */
+                        font-size: 2rem;
                         line-height: 1.1;
                         background: linear-gradient(90deg, #ff7a18, #ff3d81, #7a42f4);
                         background-size: 200% 100%;
@@ -273,16 +273,71 @@
                 </div>
             </div>
         </section>
- <!-- Social media / meeting buttons -->
+        <!-- Report tracker: image left, text right -->
+        <section class="container report-section" aria-label="Comprehensive weekly report tracker">
+            <div class="report-grid">
+                <div class="report-image">
+                    <img src="assets/Untitled (A4 (Landscape)) (2).png" alt="Weekly report preview">
+                </div>
+                <div class="report-content">
+                    <h3>COMPREHENSIVE WEEKLY REPORT TRACKER FOR STUDENTS</h3>
+                    <p>Get clear, actionable insights delivered straight to your inbox so you can track progress every week.</p>
+
+                    <ul class="report-list" aria-hidden="false">
+                        <li class="report-item"><span class="dot" aria-hidden="true"></span><div><strong>Weekly report</strong> — straight to your inbox.</div></li>
+                        <li class="report-item"><span class="dot" aria-hidden="true"></span><div><strong>Detailed Progress</strong> — broken-down analysis of strengths and next-steps.</div></li>
+                        <li class="report-item"><span class="dot" aria-hidden="true"></span><div><strong>Personalized tracker goals</strong> — set targets and automated reminders.</div></li>
+                    </ul>
+
+                    <div style="margin-top:1rem;display:flex;gap:.75rem;align-items:center">
+                        <button id="sendReportBtn" class="report-cta">Send weekly report to my inbox</button>
+                        <a class="report-cta" href="Register.html">Register & get full access</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social media / meeting buttons -->
         <section class="container" aria-label="Connect with us">
             <div class="social-bar" role="navigation" aria-labelledby="social-heading">
-                <a class="social-btn social-btn--whatsapp" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                <a class="social-btn social-btn--whatsapp" href="https://wa.me/message/XCICOMQQFPENG1" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                    <script>
+                        // Report tracker: simulate sending weekly report and show toast
+                        (function(){
+                            function showToast(message){
+                                let t = document.getElementById('reportToast');
+                                if (!t){
+                                    t = document.createElement('div');
+                                    t.id = 'reportToast';
+                                    t.className = 'report-toast';
+                                    t.setAttribute('role','status');
+                                    t.setAttribute('aria-live','polite');
+                                    document.body.appendChild(t);
+                                }
+                                t.textContent = message;
+                                t.classList.add('show');
+                                clearTimeout(t._hideTimer);
+                                t._hideTimer = setTimeout(()=> t.classList.remove('show'), 3500);
+                            }
+
+                            const btn = document.getElementById('sendReportBtn');
+                            if (btn){
+                                btn.addEventListener('click', function(){
+                                    // minor UI feedback: disable briefly
+                                    btn.disabled = true;
+                                    btn.style.opacity = '0.8';
+                                    showToast('Weekly report sent to your inbox — check your email.');
+                                    setTimeout(()=>{ btn.disabled = false; btn.style.opacity = ''; }, 1500);
+                                });
+                            }
+                        })();
+                    </script>
                     <!-- WhatsApp SVG -->
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 11.5a9.5 9.5 0 10-2.6 6.1L21 21l-2.9-1.1A9.5 9.5 0 0021 11.5z" fill="rgba(255,255,255,0.12)"/><path d="M16.1 14.7c-.4-.2-2.3-1.2-2.6-1.3-.3-.1-.6-.1-.9.2-.3.3-1.2 1.3-1.5 1.6-.2.3-.5.2-.8.1-.9-.4-3-1.7-4.1-3.3-.3-.5.3-.6.9-1.7.1-.2.1-.4 0-.6-.1-.2-1-2.4-1.3-3.2-.3-.8-.6-.6-.9-.6-.3 0-.6 0-.9 0-.3 0-.7.1-1 .3s-1.6.9-1.6 2.3.7 2.7 1.7 3.9 3.5 3.6 6.4 4.6c2 .7 3.3.6 4 .6.6 0 1-.3 1.3-.6.3-.3.8-1.1.9-1.9.1-.8.1-1.5-.3-1.7z" fill="currentColor"/></svg>
                     WhatsApp
                 </a>
 
-                <a class="social-btn social-btn--facebook" href="https://facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
+                <a class="social-btn social-btn--facebook" href="https://web.facebook.com/profile.php?id=61581605173881" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
                     <!-- Facebook SVG -->
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 12.1C22 6.5 17.5 2 11.9 2S2 6.5 2 12.1c0 4.9 3.6 8.9 8.2 9.8v-6.9H8.3v-2.9h3V9.6c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.4 0-1.8.9-1.8 1.8v2.1h3.1l-.5 2.9h-2.6v6.9C18.4 21 22 17 22 12.1z" fill="currentColor"/></svg>
                     Facebook
@@ -316,24 +371,24 @@
             </div>
             <div class="performers-grid" style="justify-content: flex-end;">
                 <article class="performer-card">
-                    <img src="assets/performer-1.svg" alt="Best student 1" class="performer-photo">
+                    <img src="assets/amaka.jpg" alt="Best student 1" class="performer-photo">
                     <h4>Amaka Johnson</h4>
                     <p>Grade 5 — Mathematics Whiz</p>
                 </article>
                 <article class="performer-card">
-                    <img src="assets/performer-2.svg" alt="Best student 2" class="performer-photo">
+                    <img src="assets/daniel.jpg" alt="Best student 2" class="performer-photo">
                     <h4>Daniel Okoye</h4>
-                    <p>Grade 7 — Science Innovator</p>
+                    <p>Senior class — Science Innovator</p>
                 </article>
                 <article class="performer-card">
-                    <img src="assets/performer-3.svg" alt="Best student 3" class="performer-photo">
+                    <img src="assets/sara.jpg" alt="Best student 3" class="performer-photo">
                     <h4>Sara Bello</h4>
-                    <p>Grade 4 — Reading Star</p>
+                    <p>Jss 3 — Reading Star</p>
                 </article>
                 <article class="performer-card">
-                    <img src="assets/performer-4.svg" alt="Best student 4" class="performer-photo">
+                    <img src="assets/Michael.jpg" alt="Best student 4" class="performer-photo">
                     <h4>Michael Adu</h4>
-                    <p>Grade 6 — Project Leader</p>
+                    <p>Senior class — Project Leader</p>
                 </article>
             </div>
         </section>
@@ -346,25 +401,25 @@
             </div>
             <div class="new-grid">
                 <article class="new-card">
-                    <img src="assets/playsheet.svg" alt="Playsheet">
-                    <h4>Playsheet</h4>
+                    <img src="assets/video for you.gif" alt="Playsheet">
+                    <h4>Videos</h4>
                     <p>Printable, playful activities to reinforce learning through play.</p>
-                    <a class="link" href="Resources.html">Explore</a>
+                    <a class="link" href="https://youtube.com/@sparktechacademy?si=fMWpXl1oMOZM2HLc" target="_blank" >Watch</a>
                 </article>
                 <article class="new-card">
-                    <img src="assets/maths-made-easy.svg" alt="Maths made easy">
+                    <img src="assets/maths made.jpg" alt="Maths made easy">
                     <h4>Maths-made-easy</h4>
                     <p>Short videos and tips that make math concepts click for learners.</p>
-                    <a class="link" href="Resources.html">Watch</a>
+                    <a class="link" href="https://youtube.com/@sparktechacademy?si=fMWpXl1oMOZM2HLc" target="_blank">Watch</a>
                 </article>
                 <article class="new-card">
-                    <img src="assets/bedtime-stories.svg" alt="Bedtime stories">
+                    <img src="assets/bed time.gif" alt="Bedtime stories">
                     <h4>Bedtime Stories</h4>
                     <p>Gentle audio stories to read along and build early literacy habits.</p>
                     <a class="link" href="Resources.html">Listen</a>
                 </article>
                 <article class="new-card">
-                    <img src="assets/abc-cartoon.svg" alt="ABC cartoon books">
+                    <img src="assets/abc.jpg" alt="ABC cartoon books">
                     <h4>Your ABC Cartoon Books</h4>
                     <p>Animated ABCs that help children learn letters with music and color.</p>
                     <a class="link" href="Resources.html">Read</a>
@@ -413,10 +468,90 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+    (function(){
+        // Mobile menu toggle with accessibility
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+        if (!hamburger || !navLinks) return;
+
+        function setOpen(open){
+            navLinks.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', String(!!open));
+        }
+
+        hamburger.addEventListener('click', ()=>{
+            const isOpen = navLinks.classList.contains('open');
+            setOpen(!isOpen);
+            if (!isOpen){
+                const firstLink = navLinks.querySelector('a');
+                if (firstLink) firstLink.focus();
+            } else {
+                hamburger.focus();
+            }
+        });
+
+        navLinks.addEventListener('click', (e)=>{
+            const a = e.target.closest('a');
+            if (a) setOpen(false);
+        });
+
+        document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape') setOpen(false); });
+        window.addEventListener('resize', ()=>{ if (window.innerWidth > 900) setOpen(false); });
+    })();
+    </script>
+
+    <script>
+    // Picture-frame flash: positioned under header with flashing animation and dismiss
+    (function(){
+        const STORAGE_KEY = 'sparktech_frame_dismissed_v1';
+        if (localStorage.getItem(STORAGE_KEY)) return;
+
+        function createFrame(){
+            const wrapper = document.createElement('div');
+            wrapper.className = 'frame-flash';
+            wrapper.style.top = '0px';
+
+            wrapper.innerHTML = `
+                <div class="frame-flash__inner" role="region" aria-live="polite">
+                    <div class="frame-flash__photo" title="Open registration"><img src="assets/frame-person.svg" alt="Students learning"></div>
+                    <div class="frame-flash__text">
+                        <div class="frame-flash__title">Learning starts 3rd November 2025</div>
+                        <div class="frame-flash__desc">Register now to reserve your child's seat — limited spaces available.</div>
+                    </div>
+                    <button class="frame-flash__close" aria-label="Dismiss spotlight">×</button>
+                </div>
+            `;
+
+            document.body.appendChild(wrapper);
+
+            // mark the document so CSS can shift content when alert/frame is open
+            document.body.classList.add('alert-open');
+
+            const headerH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 72;
+            // position below header
+            function position(){
+                const flash = document.querySelector('.flash-alert');
+                const extra = flash ? flash.offsetHeight + 8 : 8;
+                wrapper.style.top = (headerH + extra) + 'px';
+            }
+            position();
+            window.addEventListener('resize', position);
+
+            // close handler
+            const closeBtn = wrapper.querySelector('.frame-flash__close');
+            closeBtn.addEventListener('click', ()=>{
+                wrapper.remove();
+                localStorage.setItem(STORAGE_KEY, '1');
+                document.body.classList.remove('alert-open');
+            });
+
+            // clicking photo/title navigates to Register
+            wrapper.querySelector('.frame-flash__photo').addEventListener('click', ()=> window.location.href='Register.html');
+            wrapper.querySelector('.frame-flash__title').addEventListener('click', ()=> window.location.href='Register.html');
+        }
+
+        window.addEventListener('load', function(){ setTimeout(createFrame, 500); });
+    })();
     </script>
 </body>
 </html>
